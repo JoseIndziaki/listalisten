@@ -1,0 +1,12 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	font-family:Arial, Helvetica, sans-serif;
+	text-align:center;
+	background:#F2F2F2;
+}
+#caja1{
+	font-family:Arial, Helvetica, sans-serif;
+	color:#F00;
+}
+

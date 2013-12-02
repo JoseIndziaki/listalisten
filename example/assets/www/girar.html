@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>DOM</title>
+<style>
+#capa1{
+	background:#F00;
+	height:100px;
+	width:100px;
+	position:relative;
+	-webkit-animation: girar 3s alternate infinite;
+}
+
+@-webkit-keyframes girar{
+	0%{top:0px; left:600px; -webkit-transform:rotate(0deg);}
+	50%{top:100px; left:50px; border-radius:100px; -webkit-transform:rotate(90deg);}
+	100%{top:400px; left:500px; border-radius:0px; -webkit-transform:rotate(180deg);}
+	100%{top:200px; left:900px; border-radius:10px; -webkit-transform:rotate(360deg);}
+}
+</style>
+</head>
+
+<body>
+	<h1>Saludos</h1>
+    <div id="capa1"></div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>DOM</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<script type="text/javascript" src="js/jquery-2.0.2.js"></script>
+<script>
+$(document).ready(function(e) {
+    $('#caja1').html('Welcome to my App');
+	$('h1').html('Hola otra vez');
+	$('.firma').attr({href:"http://www.anahuacoaxaca.edu.mx/", target:"_blank"}).html("/www.anahuacoaxaca.edu.mx/");
+});
+</script>
+</head>
+
+<body>
+	<h1>Hola</h1>
+    <div id="caja1"></div>
+    <a class="firma">Primera App</a>
+</body>
+</html>

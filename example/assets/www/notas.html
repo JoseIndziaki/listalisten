@@ -1,0 +1,107 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>Rutas</title>
+
+<script src="cordova.js"></script><meta http-equiv="Access-Control-Allow-Origin" content="*" />
+<meta charset="utf-8" />
+<meta http-equiv="Access-Control-Allow-Origin" content="*" />
+<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
+<script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
+<script>
+	//cuando cargue el documento
+	$(document).ready(function(e) {
+		//declaramos las variables
+		var notas = document.getElementById('notas');
+		
+		//buscamos todas las notas en el localStorage
+		for(i=0; i<localStorage.length;i++){
+			notas.innerHTML = notas.innerHTML + '<a data-ajax="false" href="youtube.html?buscar=' + localStorage.getItem(i) + '"><p>' +  localStorage.getItem(i) + "</p></a>";
+		}
+		
+		//enfocamos en el textfield
+        $('#nota').focus();
+    });
+	
+	function addNote(){
+		//colocamos en el localStorage el valor del textfield
+		localStorage.setItem(localStorage.length, nota.value);
+		notas.innerHTML = notas.innerHTML + '<a data-ajax="false" href="youtube.html?buscar=' + localStorage.getItem(localStorage.length-1) + '"><p>' +  localStorage.getItem(localStorage.length-1) + "</p></a>";
+		nota.value = "";
+		nota.focus();
+	}
+	
+	//borrar el contenido de las notas
+	function limpiar(){
+		var notas = document.getElementById('notas');
+		localStorage.clear();
+		notas.innerHTML = "";
+	}
+	
+	function canv(){
+		var canvas = document.getElementById('rect');
+		context = canvas.getContext('2d');
+		for(i=0; i<300; i++){
+			context.fillStyle = "#f20";
+			context.fillRect(Math.random()*canvas.width,Math.random()*canvas.height,Math.random()*2,Math.random()*800);
+			context.fillStyle = "#f60";
+			context.fillRect(Math.random()*canvas.width,Math.random()*canvas.height,Math.random()*50,Math.random()*50);
+			context.fillStyle = "#f00";
+			context.fillRect(Math.random()*canvas.width,Math.random()*canvas.height,Math.random()*800,Math.random()*2);
+		}
+	}
+</script>
+<title>Documento sin título</title>
+
+<style>
+	body{
+		text-align:center;
+	}
+	#notas{
+		background:#CCC;
+		border-radius:10px;
+		margin:10px;
+		padding:10px;
+		text-align:center;
+	}
+	a{
+		font-size:26px;
+		text-decoration:none;
+		color:#000;
+		font-family: "bad script";
+	}
+	
+	#rect, #rect2, #rect3{
+		max-width:100%;
+	}
+	#fondo{
+		position:fixed;
+		z-index:-1;
+		top:0px;
+	}
+	.ui-body-c{
+		background:none;
+	}
+</style>
+</head>
+
+
+
+<body onLoad="canv()">
+	<div id="fondo">
+    <canvas id="rect" width="1200" height="2200" ></canvas>
+</div>
+
+    <div id="titulo"><h2>Escribe tus notas para buscar en Deezer</h2></div>
+    <input type="text" placeholder="Añade una canción" name="nota" id="nota" onchange="addNote()" />
+    <input id="limpiar" type="button" value="Limpiar" onclick="limpiar()" />
+	<div id="notas">
+    </div>
+
+</body>
+</html>
+
+<script src="http://connect.soundcloud.com/sdk.js"></script>
+<script src="http://cdn-files.deezer.com/js/min/dz.js"></script>
